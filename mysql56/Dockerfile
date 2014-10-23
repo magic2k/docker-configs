@@ -1,12 +1,15 @@
 
 FROM phusion/baseimage:latest
-MAINTAINER Moo korova
+MAINTAINER That guy
 
 RUN apt-get -qq update
 RUN apt-get install -y --no-install-recommends mysql-server-5.6 \
- && rm -rf /var/lib/mysql/mysql \
  && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 3306
+ADD run.sh /root/run.sh
+RUN chmod 755 /root/run.sh
+RUN /root/run.sh
 
-ENTRYPOINT mysqld
+EXPOSE 3306
+ENTRYPOINT /usr/sbin/mysqld
+CMD ["start"]
