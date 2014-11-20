@@ -4,7 +4,7 @@ MAINTAINER That guy
 
 RUN apt-get -qq update
 RUN apt-get -y upgrade
-RUN apt-get -y install nginx httpd openssh-server supervisor
+RUN apt-get -y install php5 nginx apache2 openssh-server supervisor
 
 RUN \
   echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
