@@ -11,6 +11,7 @@ RUN apt-get -y upgrade
 ADD run.sh /root/run.sh
 RUN chmod 755 /root/run.sh
 #RUN /root/run.sh
+
 ADD REFRESHED_AT 2014-11-20
 EXPOSE 3306
 #USER mysql
