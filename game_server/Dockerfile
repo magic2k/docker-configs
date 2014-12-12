@@ -19,7 +19,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 #RUN chmod 755 /root/run.sh
 #RUN /root/run.sh
 
-
+ADD REFRESHED_AT 2014-11-20
 EXPOSE 80
 EXPOSE 443
 EXPOSE 22
