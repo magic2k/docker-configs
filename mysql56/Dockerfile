@@ -15,7 +15,7 @@ RUN chmod 755 /root/run.sh
 ADD REFRESHED_AT 2014-11-20
 EXPOSE 3306
 #USER mysql
-#ENTRYPOINT ["/usr/sbin/mysqld"]
+ENTRYPOINT ["/usr/sbin/mysqld", "start"]
 #CMD ["start"]
 #CMD ["/usr/sbin/mysqld", "start"]
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]

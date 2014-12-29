@@ -1,0 +1,2 @@
+docker run --name JH_gs1 -v /home/docker/gshome_bbmobile:/home/bbmobile --link jh_mysql1:jh-mysql1 game_srv1 supervisor
+
