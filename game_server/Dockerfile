@@ -6,7 +6,7 @@ RUN apt-get -qq update
 RUN apt-get -y upgrade
 RUN apt-get -y install php5 nginx apache2 openssh-server supervisor
 
-ADD .docker/supervisord.conf etc/supervisor/supervisord.conf
+ADD .docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD .docker/run.sh /usr/local/bin/run
 
 RUN \
