@@ -1,0 +1,14 @@
+nodeapp:
+  #  build: ./nodejs/
+#  tag: nodeapp  
+  image: jamtur01/nodejs
+  hostname: nodeapp
+  ports:
+    - "3000:3000"
+  expose:
+    - "22"
+  links:
+    - redis_primary
+
+redis_primary:
+  image: jamtur01/redis_primary

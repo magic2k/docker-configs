@@ -1,4 +1,4 @@
-
+#
 FROM phusion/baseimage:latest
 MAINTAINER That guy
 
@@ -6,8 +6,9 @@ RUN apt-get -qq update
 RUN apt-get -y upgrade
 RUN apt-get -y install php5 nginx apache2 openssh-server supervisor
 
-ADD .docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD .docker/run.sh /usr/local/bin/run
+ADD docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD docker/run.sh /usr/local/bin/run
+RUN chmod +x /usr/local/bin/run
 
 RUN \
   echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
@@ -22,9 +23,9 @@ ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 #RUN chmod 755 /root/run.sh
 #RUN /root/run.sh
 
-REFRESHED_AT 2014-12-27
+ENV REFRESHED_AT 2014-12-27
 EXPOSE 80
 EXPOSE 443
 EXPOSE 22
 
-CMD ["/root/run.sh"]
+CMD ["/usr/local/bin/run"]

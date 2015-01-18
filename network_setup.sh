@@ -17,6 +17,7 @@ nsenter -t $(scripts/get_container_PID.sh $1) -n ip link set p6p1p0 up
 CPID=$(scripts/get_container_PID.sh $1)
 
 # and configure the ip address and routing
+#TODO: replace with 'docker exec'
 nsenter -t $CPID -n ip route del default
 nsenter -t $CPID -n ip addr add 172.18.64.251/26 dev p6p1p0
 nsenter -t $CPID -n ip route add default via 172.18.64.193 dev p6p1p0
